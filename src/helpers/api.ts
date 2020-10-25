@@ -1,6 +1,5 @@
 import { IFetchOptions, IAPIResponse } from '../types/api';
 
-
 function getEncodedQuery(options: IFetchOptions): string {
     const queryParams = options.query || {};
 

@@ -1,4 +1,4 @@
-import {ITournament} from './tournaments';
+import { ITournament } from './tournaments';
 
 export interface IAppState {
     tournaments: ITournament[] | null;

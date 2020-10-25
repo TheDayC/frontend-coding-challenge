@@ -1,7 +1,7 @@
 export interface IFetchOptions extends RequestInit {
-    query?: any;
+    query?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
     timeout?: number;
-    body?: any;
+    body?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export interface IAPIResponse<P> {
