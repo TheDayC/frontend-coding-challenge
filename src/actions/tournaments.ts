@@ -13,6 +13,6 @@ export const ACTION_STORE_TOURNAMENTS = (payload: ITournament[]) => {
 };
 
 // Action Creators
-export function storeFixture(payload: ITournament[]): IActionWithPayload<TournamentActionTypes, ITournament[]> {
+export function storeTournaments(payload: ITournament[]): IActionWithPayload<TournamentActionTypes, ITournament[]> {
     return ACTION_STORE_TOURNAMENTS(payload);
 }
