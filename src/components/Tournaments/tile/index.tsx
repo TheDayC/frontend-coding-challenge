@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import React from 'react';
 import { IParticipants } from '../../../types/tournaments';
 import Button from '../../Button';
+import H6 from '../../H6';
 
 import './styles.scss';
 
@@ -14,14 +16,16 @@ interface ITileProps {
 }
 
 const Tile: React.FC<ITileProps> = ({id, name, organizer, game, participants, startDate}) => {
+    const date = moment(startDate);
+
     return (
         <div className="tile">
-            <p className="name">{name}</p>
+            <H6>{name}</H6>
             <div className="details">
                 <p className="organizer">Organizer: {organizer}</p>
                 <p className="game">Game: {game}</p>
                 <p className="participants">Participants: {participants?.current}/{participants?.max}</p>
-                <p className="startDate">Start: {startDate}</p>
+                <p className="startDate">Start: {date.format('DD/MM/YYYY, HH:mm:ss')}</p>
             </div>
             <div className="buttons">
                 <Button>Edit</Button>
