@@ -8,6 +8,7 @@ const Button = styled.button`
     color: ${theme.palette.primary.main};
     padding: ${theme.spacing(2)};
     ${theme.typography.button};
+    cursor: pointer;
 
     &:hover {
         border: 1px solid ${theme.palette.secondary.light};
