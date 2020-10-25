@@ -18,6 +18,14 @@ interface ITileProps {
 const Tile: React.FC<ITileProps> = ({id, name, organizer, game, participants, startDate}) => {
     const date = moment(startDate);
 
+    const showPrompt = () => {
+        const newTournamentName = prompt('New Tournament Name:');
+        
+        if (newTournamentName) {
+            
+        }
+    };
+
     return (
         <div className="tile">
             <H6>{name}</H6>
@@ -28,7 +36,7 @@ const Tile: React.FC<ITileProps> = ({id, name, organizer, game, participants, st
                 <p className="startDate">Start: {date.format('DD/MM/YYYY, HH:mm:ss')}</p>
             </div>
             <div className="buttons">
-                <Button>Edit</Button>
+                <Button onClick={showPrompt}>Edit</Button>
                 <Button>Delete</Button>
             </div>
         </div>
