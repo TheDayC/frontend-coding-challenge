@@ -40,9 +40,19 @@ module.exports = {
             'error',
             'always'
         ],
-        '@typescript-eslint/explicit-module-boundary-types': ['error', {
-            'allowDirectConstAssertionInArrowFunctions': true
-        }],
+        '@typescript-eslint/typedef': [
+            'error',
+            {
+                arrowParameter: false,
+                parameter: true,
+                propertyDeclaration: true,
+                memberVariableDeclaration: true,
+                variableDeclarationIgnoreFunction: true
+            }
+        ],
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/prop-types': 0
     },
     'settings': {

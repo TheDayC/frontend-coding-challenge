@@ -25,7 +25,7 @@ const theme = {
             primary: '#FFF'
         }
     },
-    spacing: (multiplier = 1) => `${4 * multiplier}px`,
+    spacing: (multiplier = 1): string => `${4 * multiplier}px`,
     typography: {
         h1: {
             'font-weight': 'bold',
