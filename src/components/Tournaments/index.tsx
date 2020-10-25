@@ -10,7 +10,7 @@ const Tournaments: React.FC = () => {
 
     return (
         <div className="tournaments">
-            {tournaments ? tournaments.map(tournament => <Tile {...tournament} key={`tournament-${tournament.id}`} />) : <p>Loading Tournaments</p>}
+            {tournaments ? tournaments.map(tournament => <Tile {...tournament} key={`tournament-${tournament.id}`} />) : <p className="loading">Loading Tournaments...</p>}
         </div>
     );
 };
