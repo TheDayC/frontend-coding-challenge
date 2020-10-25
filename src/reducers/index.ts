@@ -2,10 +2,10 @@ import { combineReducers } from 'redux';
 
 import tournaments from './tournaments';
 
-import {IAppState} from '../types/store';
+import { IAppState } from '../types/store';
 
 const rootReducer = combineReducers<IAppState>({
-  tournaments
+    tournaments
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

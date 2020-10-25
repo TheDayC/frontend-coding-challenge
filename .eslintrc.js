@@ -1,31 +1,32 @@
 module.exports = {
-    "env": {
-        "browser": true,
+    'env': {
+        'browser': true,
         'amd': true,
         'node': true,
         'es6': true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+    'extends': [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended'
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
+    'parser': '@typescript-eslint/parser',
+    'parserOptions': {
+        'ecmaFeatures': {
+            'jsx': true
         },
-        "ecmaVersion": 12,
-        "sourceType": "module"
+        'ecmaVersion': 12,
+        'sourceType': 'module'
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
+    'plugins': [
+        'react',
+        '@typescript-eslint'
     ],
-    "rules": {
+    'rules': {
         'indent': [
             'warn',
-            4
+            4,
+            { 'SwitchCase': 1 }
         ],
         'linebreak-style': [
             'error',

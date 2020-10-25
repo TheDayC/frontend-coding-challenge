@@ -1,4 +1,4 @@
-import {IAppState} from '../types/store';
+import { IAppState } from '../types/store';
 
 // Create default tournament state.
 export function createTournamentState(): null {

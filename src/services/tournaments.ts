@@ -1,5 +1,5 @@
 import store from '../store';
-import {GET_TOURNAMENTS_CONFIG} from '../constants/services';
+import { GET_TOURNAMENTS_CONFIG } from '../constants/services';
 import { apiFetch } from '../helpers/api';
 import { ITournament } from '../types/tournaments';
 import { safelyTransform } from '../helpers/transformation';

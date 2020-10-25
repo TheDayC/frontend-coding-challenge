@@ -7,7 +7,7 @@ function parseAsParticipents<F>(data: unknown, fallback: F): IParticipants | F {
         return {
             current: safelyParse(data, 'participants.current', parseAsNumber, null),
             max: safelyParse(data, 'participants.max', parseAsNumber, null)
-        }
+        };
     } else {
         return fallback;
     }
