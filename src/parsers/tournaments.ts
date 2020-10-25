@@ -5,8 +5,8 @@ import { isTournaments, isParticipants } from '../helpers/typeguards';
 function parseAsParticipents<F>(data: unknown, fallback: F): IParticipants | F {
     if (isParticipants(data)) {
         return {
-            current: safelyParse(data, 'participants.current', parseAsNumber, null),
-            max: safelyParse(data, 'participants.max', parseAsNumber, null)
+            current: safelyParse(data, 'current', parseAsNumber, null),
+            max: safelyParse(data, 'max', parseAsNumber, null)
         };
     } else {
         return fallback;
