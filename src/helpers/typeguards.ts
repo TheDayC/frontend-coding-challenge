@@ -34,7 +34,12 @@ export function isEnumMember<E>(enumToTest: E): ITypeGuard<E[keyof E]> {
 }
 
 export function isParticipants(candidate: unknown): candidate is IParticipants {
-    return candidate && typeof candidate === 'object' && 'current' in candidate;
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    if (isNotNullOrUndefined<object>(candidate) && typeof candidate === 'object') {
+        return 'current' in candidate;
+    } else {
+        return false;
+    }
 }
 
 export function isTournaments(candidate: unknown): candidate is ITournament[] {
