@@ -12,3 +12,8 @@ export const PATCH_TOURNAMENT_CONFIG: IServiceMethodConfig<unknown, ITournament 
     transform: parseAsTournament,
     url: API_TOURNAMENTS_URL
 };
+
+export const CREATE_TOURNAMENT_CONFIG: IServiceMethodConfig<unknown, ITournament | null> = {
+    transform: parseAsTournament,
+    url: API_TOURNAMENTS_URL
+};

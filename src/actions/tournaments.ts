@@ -30,6 +30,15 @@ export const ACTION_DELETE_TOURNAMENT = (payload: string) => {
     return action;
 };
 
+export const ACTION_ADD_TOURNAMENT = (payload: ITournament) => {
+    const action = {
+        type: TournamentActionTypes.ADD_TOURNAMENT,
+        payload
+    };
+
+    return action;
+};
+
 // Action Creators
 export function storeTournaments(payload: ITournament[]): IActionWithPayload<TournamentActionTypes, ITournament[]> {
     return ACTION_STORE_TOURNAMENTS(payload);
@@ -41,4 +50,8 @@ export function editTournament(payload: ITournament): IActionWithPayload<Tournam
 
 export function deleteTournament(payload: string): IActionWithPayload<TournamentActionTypes, string> {
     return ACTION_DELETE_TOURNAMENT(payload);
+}
+
+export function addTournament(payload: ITournament): IActionWithPayload<TournamentActionTypes, ITournament> {
+    return ACTION_ADD_TOURNAMENT(payload);
 }
