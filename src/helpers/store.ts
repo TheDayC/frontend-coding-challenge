@@ -5,9 +5,15 @@ export function createTournamentState(): null {
     return null;
 }
 
+// Create default search state.
+export function createSearchState(): null {
+    return null;
+}
+
 // Create initial state
 export function createInitialState(): IAppState {
     return {
-        tournaments: createTournamentState()
+        tournaments: createTournamentState(),
+        search: createSearchState()
     };
 }

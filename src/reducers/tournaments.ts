@@ -9,8 +9,7 @@ type tournamentActionType = ITournament[] | ITournament | string | null;
 
 export default function tournaments(
     state: ITournament[] | null = createTournamentState(),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    action: IActionWithPayload<TournamentActionTypes, tournamentActionType> // Ideally this would be typed but for speed forcing any.
+    action: IActionWithPayload<TournamentActionTypes, tournamentActionType>
 ): ITournament[] | null {
     switch (action.type) {
         case TournamentActionTypes.STORE_TOURNAMENTS:
