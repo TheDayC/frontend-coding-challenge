@@ -7,6 +7,7 @@ import Container from './components/Container';
 import H4 from './components/H4';
 import { fetchTournaments } from './services/tournaments';
 import Tournaments from './components/Tournaments';
+import SearchAndCreate from './components/SearchAndCreate';
 
 const App: React.FC = () => {
     // Make a single call on mount to populate state with tournaments.
@@ -17,6 +18,7 @@ const App: React.FC = () => {
     return (
         <Container>
             <H4>FACEIT Tournaments</H4>
+            <SearchAndCreate />
             <Tournaments />
         </Container>
     );
