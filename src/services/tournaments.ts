@@ -3,7 +3,8 @@ import { GET_TOURNAMENTS_CONFIG, PATCH_TOURNAMENT_CONFIG } from '../constants/se
 import { apiFetch } from '../helpers/api';
 import { ITournament } from '../types/tournaments';
 import { safelyTransform } from '../helpers/transformation';
-import { storeTournaments, editTournament } from '../actions/tournaments';
+import { storeTournaments, editTournament, deleteTournament } from '../actions/tournaments';
+import { API_TOURNAMENTS_URL } from '../constants/api';
 
 export function fetchTournaments(): Promise<void> {
     const { url, transform } = GET_TOURNAMENTS_CONFIG;
@@ -43,6 +44,22 @@ export function patchTournament(id: string, name: string): Promise<void> {
                 if (tournament) {
                     store.dispatch(editTournament(tournament));
                 }
+            }
+        },
+        error => console.warn(error.message)
+    );
+}
+
+export function removeTournament(id: string): Promise<void> {
+    const options = {
+        body: {},
+        method: 'DELETE'
+    };
+
+    return apiFetch<ITournament>(`${API_TOURNAMENTS_URL}/${id}`, options).then(
+        res => {
+            if (res) {
+                store.dispatch(deleteTournament(id));
             }
         },
         error => console.warn(error.message)
