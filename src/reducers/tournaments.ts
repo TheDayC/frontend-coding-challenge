@@ -2,9 +2,10 @@ import { TournamentActionTypes } from '../enums/actions';
 import { createTournamentState } from '../helpers/store';
 import { IActionWithPayload } from '../types/actions';
 import { ITournament } from '../types/tournaments';
-import { isTournament, isTournaments } from '../helpers/typeguards';
+import { isString, isTournament, isTournaments } from '../helpers/typeguards';
+import { removeTournamentFromState } from '../helpers/arrays';
 
-type tournamentActionType = ITournament[] | ITournament | null;
+type tournamentActionType = ITournament[] | ITournament | string | null;
 
 export default function tournaments(
     state: ITournament[] | null = createTournamentState(),
@@ -21,7 +22,7 @@ export default function tournaments(
             }
         case TournamentActionTypes.EDIT_TOURNAMENT:
             const editedTournament = action.payload;
-            
+
             if (state && isTournament(editedTournament)) {
                 return state.map(item => {
                     if (item.id !== editedTournament.id) {
@@ -33,6 +34,15 @@ export default function tournaments(
                         name: editedTournament.name
                     };
                 });
+            }
+
+            return state;
+        case TournamentActionTypes.DELETE_TOURNAMENT:
+            const tournamentId = action.payload;
+
+            if (state && isString(tournamentId)) {
+                // Don't want to mutate state directly so abstract to a helper and return data.
+                return removeTournamentFromState(state, tournamentId);
             }
 
             return state;

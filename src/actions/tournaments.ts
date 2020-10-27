@@ -21,6 +21,15 @@ export const ACTION_EDIT_TOURNAMENT = (payload: ITournament) => {
     return action;
 };
 
+export const ACTION_DELETE_TOURNAMENT = (payload: string) => {
+    const action = {
+        type: TournamentActionTypes.DELETE_TOURNAMENT,
+        payload
+    };
+
+    return action;
+};
+
 // Action Creators
 export function storeTournaments(payload: ITournament[]): IActionWithPayload<TournamentActionTypes, ITournament[]> {
     return ACTION_STORE_TOURNAMENTS(payload);
@@ -28,4 +37,8 @@ export function storeTournaments(payload: ITournament[]): IActionWithPayload<Tou
 
 export function editTournament(payload: ITournament): IActionWithPayload<TournamentActionTypes, ITournament> {
     return ACTION_EDIT_TOURNAMENT(payload);
+}
+
+export function deleteTournament(payload: string): IActionWithPayload<TournamentActionTypes, string> {
+    return ACTION_DELETE_TOURNAMENT(payload);
 }
