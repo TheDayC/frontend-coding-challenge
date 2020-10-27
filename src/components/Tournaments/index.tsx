@@ -8,7 +8,8 @@ import Tile from './tile';
 const Tournaments: React.FC = () => {
     const { tournaments, searchTerm } = useSelector(selector);
     const searchRegex = new RegExp(`.*?${searchTerm ? searchTerm.toLowerCase() : ''}`);
-    const filteredTournaments = tournaments && searchTerm && searchTerm.length > 0 ? tournaments.filter(t => searchRegex.test(t.name.toLowerCase())) : tournaments;
+    const filteredTournaments =
+        tournaments && searchTerm && searchTerm.length > 0 ? tournaments.filter(t => searchRegex.test(t.name.toLowerCase())) : tournaments;
 
     return (
         <div className="tournaments">

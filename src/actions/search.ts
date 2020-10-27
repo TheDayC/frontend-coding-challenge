@@ -1,4 +1,4 @@
-import { SearchActionTypes} from '../enums/actions';
+import { SearchActionTypes } from '../enums/actions';
 import { IActionWithPayload } from '../types/actions';
 
 export const ACTION_SET_SEARCH_TERM = (payload: string) => {

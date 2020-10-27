@@ -5,8 +5,5 @@ export function removeTournamentFromState(state: ITournament[], id: string): ITo
 }
 
 export function addTournamentToState(state: ITournament[], tournament: ITournament): ITournament[] {
-    return [
-        ...state,
-        tournament
-    ];
+    return [...state, tournament];
 }
