@@ -21,15 +21,21 @@ export default function tournaments(
             }
         case TournamentActionTypes.EDIT_TOURNAMENT:
             const editedTournament = action.payload;
-            const tempState = state;
             
-            if (tempState && isTournament(editedTournament)) {
-                const editedIndex = tempState.findIndex(t => t.id === editedTournament.id);
-                
-                tempState[editedIndex] = editedTournament;
+            if (state && isTournament(editedTournament)) {
+                return state.map(item => {
+                    if (item.id !== editedTournament.id) {
+                        return item;
+                    }
+
+                    return {
+                        ...item,
+                        name: editedTournament.name
+                    };
+                });
             }
 
-            return tempState;
+            return state;
         default:
             return state;
     }
