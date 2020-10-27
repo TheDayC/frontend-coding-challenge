@@ -1,9 +1,10 @@
 import { createSelector } from 'reselect';
 
-import { selectTournaments } from '../../selectors';
+import { selectTournaments, selectSearchTerm } from '../../selectors';
 
-const selector = createSelector([selectTournaments], tournaments => ({
-    tournaments
+const selector = createSelector([selectTournaments, selectSearchTerm], (tournaments, searchTerm) => ({
+    tournaments,
+    searchTerm
 }));
 
 export default selector;
