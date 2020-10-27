@@ -3,7 +3,7 @@ import { createTournamentState } from '../helpers/store';
 import { IActionWithPayload } from '../types/actions';
 import { ITournament } from '../types/tournaments';
 import { isString, isTournament, isTournaments } from '../helpers/typeguards';
-import { removeTournamentFromState } from '../helpers/arrays';
+import { removeTournamentFromState, addTournamentToState } from '../helpers/arrays';
 
 type tournamentActionType = ITournament[] | ITournament | string | null;
 
@@ -42,6 +42,14 @@ export default function tournaments(
             if (state && isString(tournamentId)) {
                 // Don't want to mutate state directly so abstract to a helper and return data.
                 return removeTournamentFromState(state, tournamentId);
+            }
+
+            return state;
+        case TournamentActionTypes.ADD_TOURNAMENT:
+            const newTournament = action.payload;
+
+            if (state && isTournament(newTournament)) {
+                return addTournamentToState(state, newTournament);
             }
 
             return state;
