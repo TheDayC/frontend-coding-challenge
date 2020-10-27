@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React from 'react';
+import { patchTournament } from '../../../services/tournaments';
 import { IParticipants } from '../../../types/tournaments';
 import Button from '../../Button';
 import H6 from '../../H6';
@@ -18,6 +19,14 @@ interface ITileProps {
 const Tile: React.FC<ITileProps> = ({id, name, organizer, game, participants, startDate}) => {
     const date = moment(startDate);
 
+    const showPrompt = () => {
+        const newTournamentName = prompt('New Tournament Name:');
+        
+        if (newTournamentName) {
+            patchTournament(id, newTournamentName);
+        }
+    };
+
     return (
         <div className="tile">
             <H6>{name}</H6>
@@ -28,7 +37,7 @@ const Tile: React.FC<ITileProps> = ({id, name, organizer, game, participants, st
                 <p className="startDate">Start: {date.format('DD/MM/YYYY, HH:mm:ss')}</p>
             </div>
             <div className="buttons">
-                <Button>Edit</Button>
+                <Button onClick={showPrompt}>Edit</Button>
                 <Button>Delete</Button>
             </div>
         </div>
