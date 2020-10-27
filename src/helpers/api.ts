@@ -11,8 +11,10 @@ function getEncodedQuery(options: IFetchOptions): string {
 }
 
 function getRequestInit(options: IFetchOptions): RequestInit {
+    const acceptableBodyTypes = ['POST', 'PATCH'];
+
     const requestInit: RequestInit = {
-        body: options.method === 'POST' ? JSON.stringify(options.body) : undefined,
+        body: acceptableBodyTypes.find(type => type === options.method) ? JSON.stringify(options.body) : undefined,
         headers: {
             Accept: 'application/json, text/plain, */*',
             'Content-Type': 'application/json',

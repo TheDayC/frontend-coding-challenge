@@ -12,7 +12,20 @@ export const ACTION_STORE_TOURNAMENTS = (payload: ITournament[]) => {
     return action;
 };
 
+export const ACTION_EDIT_TOURNAMENT = (payload: ITournament) => {
+    const action = {
+        type: TournamentActionTypes.EDIT_TOURNAMENT,
+        payload
+    };
+
+    return action;
+};
+
 // Action Creators
 export function storeTournaments(payload: ITournament[]): IActionWithPayload<TournamentActionTypes, ITournament[]> {
     return ACTION_STORE_TOURNAMENTS(payload);
+}
+
+export function editTournament(payload: ITournament): IActionWithPayload<TournamentActionTypes, ITournament> {
+    return ACTION_EDIT_TOURNAMENT(payload);
 }

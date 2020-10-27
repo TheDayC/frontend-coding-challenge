@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React from 'react';
+import { patchTournament } from '../../../services/tournaments';
 import { IParticipants } from '../../../types/tournaments';
 import Button from '../../Button';
 import H6 from '../../H6';
@@ -22,7 +23,7 @@ const Tile: React.FC<ITileProps> = ({id, name, organizer, game, participants, st
         const newTournamentName = prompt('New Tournament Name:');
         
         if (newTournamentName) {
-            
+            patchTournament(id, newTournamentName);
         }
     };
 

@@ -53,7 +53,8 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'react/prop-types': 0
+        'react/prop-types': 0,
+        'no-case-declarations': 'off'
     },
     'settings': {
         'react': {

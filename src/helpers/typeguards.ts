@@ -42,6 +42,15 @@ export function isParticipants(candidate: unknown): candidate is IParticipants {
     }
 }
 
+export function isTournament(candidate: unknown): candidate is ITournament {
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    if (isNotNullOrUndefined<object>(candidate) && typeof candidate === 'object') {
+        return 'participants' in candidate;
+    } else {
+        return false;
+    }
+}
+
 export function isTournaments(candidate: unknown): candidate is ITournament[] {
     return Array.isArray(candidate) && typeof candidate[0] === 'object' && 'participants' in candidate[0];
 }
